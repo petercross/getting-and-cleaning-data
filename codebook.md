@@ -1,5 +1,32 @@
 ## Getting and Cleaning Data Project
 
+### Project requirements:
+### 1. Merges the training and the test sets to create one data set.
+Once the corret working directory is set, the following files are loaded into memory:
+-features.txt
+-activity_labels.txt
+-subject_train.txt
+-x_train.txt
+-y_train.txt
+-subject_test.txt
+-x_test.txt
+-y_test.txt
+These are aggregated into test and training datasets, which are further aggregated into a single dataset.
+
+### 2. Extracts only the measurements on the mean and standard deviation for each measurement.
+Identifies columns to keep by creating a logical vector using grepl and matching for the required column names
+
+### 3. Uses descriptive activity names to name the activities in the data set
+Does this by joining the file activity_labels.txt, containing human-friendly names for each activity_id
+
+### 4. Appropriately labels the data set with descriptive variable names.
+transforms the abbreviations and separates the data points with underscores using gsub
+
+### 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+Using aggregate, finds the mean for each column while grouping on subject_id and activity_id, and rejoins the human-readable activity label on activity_id
+
+## Data Fields and Definitions
+
 ###For each record it is provided:
 
 - Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
